@@ -14,8 +14,18 @@ public class CookingTheBooks implements Solvable {
 		return fileName;
 	}
 
-	public Lists solveFor(Lists input) {
-		return null;
+	public List<String> solveFor(List<String> input) {
+
+		ArrayList<String> result = Lists.newArrayList();
+		input.remove(0);
+		int i = 1;
+
+		for (String line : input) {
+			result.add("Case #" + (i++) + ": " + solveSmaller(line) + " "
+					+ solveBigger(line));
+		}
+
+		return result;
 	}
 
 	public String solveSmaller(String number) {
