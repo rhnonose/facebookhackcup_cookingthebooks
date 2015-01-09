@@ -16,14 +16,14 @@ private CookingTheBooks cookingTheBooks;
     
     @Test
     public void happyDay(){
-		testSmall("0", "0");
+		testSmaller("0", "0");
 		testBigger("0", "0");
 	}
     
     @Test
     public void threeDigitsSmaller(){
-		testSmall("123", "123");
-		testSmall("897", "798");
+		testSmaller("123", "123");
+		testSmaller("897", "798");
 	}
     
     @Test
@@ -34,21 +34,51 @@ private CookingTheBooks cookingTheBooks;
 	
     @Test
 	public void fiveDigits(){
-		testSmall("31524","13524");
+		testSmaller("31524","13524");
 		testBigger("31524", "51324");
 	}
     
     @Test
     public void cloudyDaySmaller(){
-    	testSmall("19919119", "11919199");
+    	testSmaller("19919119", "11919199");
     }
     
     @Test
     public void cloudyDayBigger(){
     	testBigger("19919119", "99919111");
     }
+    
+    @Test
+    public void numberWithZeroTwoSmaller(){
+    	testSmaller("10", "10");
+    }
+    
+    @Test
+    public void numberWithZeroFiveSmaller(){
+    	testSmaller("12220", "10222");
+    }
+    
+    @Test
+    public void numberWithZeroSixSmaller(){
+    	testSmaller("211100", "111200");
+    }
+    
+    @Test
+    public void numberWithZeroTwoBigger(){
+    	testBigger("10", "10");
+    }
+    
+    @Test
+    public void numberWithZeroFiveBigger(){
+    	testBigger("12220", "21220");
+    }
+    
+    @Test
+    public void numberWithZeroSixBigger(){
+    	testBigger("211100", "211100");
+    }
 
-	private void testSmall(String in, String out) {
+	private void testSmaller(String in, String out) {
 		String result = cookingTheBooks.solveSmaller(in);
 		assertEquals(out, result);
 	}
